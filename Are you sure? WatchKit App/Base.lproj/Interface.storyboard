@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mXJ-f0-JCo">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
+    </dependencies>
+    <scenes>
+        <!--Alcoolémie-->
+        <scene sceneID="vrV-9o-W9y">
+            <objects>
+                <controller identifier="Step" title="Alcoolémie" hidesWhenLoading="NO" id="yx0-Ix-XtC" customClass="StepInterfaceController">
+                    <items>
+                        <imageView height="130" alignment="left" id="RoX-nd-asC"/>
+                        <label width="133" alignment="left" text="Vous avez environs :" textAlignment="center" id="sHt-uU-9CQ"/>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="RoX-nd-asC" id="p5n-Gz-OrN"/>
+                        <outlet property="tauxAlcoolSang" destination="sHt-uU-9CQ" id="pH8-xx-v60"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-18" y="318.5"/>
+        </scene>
+        <!--Catégories-->
+        <scene sceneID="vYx-rj-Aql">
+            <objects>
+                <controller title="Catégories" hidesWhenLoading="NO" id="mXJ-f0-JCo" customClass="DetailInterfaceController">
+                    <items>
+                        <group width="1" alignment="left" id="CGa-q7-6vi">
+                            <items>
+                                <button width="136" alignment="left" title="Taux d'alcoolémie" id="9me-fe-pxM">
+                                    <connections>
+                                        <action selector="onTouchStep" destination="mXJ-f0-JCo" id="vNh-DU-RfX"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="o9v-h3-mvA">
+                            <color key="color" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <table alignment="left" id="dgv-aw-60e">
+                            <items>
+                                <tableRow identifier="Letter" id="yp0-22-xWN" customClass="AlcoolRowController">
+                                    <group key="rootItem" width="1" height="37.5" alignment="left" id="3tV-c7-Zt7">
+                                        <items>
+                                            <imageView width="0.33000000000000002" height="1" alignment="left" contentMode="scaleAspectFit" id="p8k-J3-hTa"/>
+                                            <label width="79" height="20" alignment="center" verticalAlignment="center" text="Label" textAlignment="right" id="qPk-7a-ICF"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="interfaceImage" destination="p8k-J3-hTa" id="INE-eK-ybM"/>
+                                        <outlet property="titleLabel" destination="qPk-7a-ICF" id="W3c-A8-AcR"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <separator alignment="left" id="BgH-ri-WBS">
+                            <color key="color" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <button width="136" alignment="left" title="Consommation" id="zMu-Jh-agL">
+                            <connections>
+                                <action selector="onTouchConsommation" destination="mXJ-f0-JCo" id="JcA-Di-Ebh"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="interfaceTable" destination="dgv-aw-60e" id="HMs-ce-OCf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="236" y="317"/>
+        </scene>
+        <!--Consomation-->
+        <scene sceneID="PFc-fS-yNd">
+            <objects>
+                <controller identifier="Consomation" title="Consomation" hidesWhenLoading="NO" id="hcQ-TF-yyf" customClass="DetailConsomationControllerInterfaceController">
+                    <items>
+                        <group width="1" height="0.40000000000000002" alignment="left" id="xPj-mO-OHa">
+                            <items>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="Bm3-X9-O50">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="cannette-biere (2).png" id="iQr-AF-fWw"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="ae0-3C-5BF"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="KdH-gp-IFx">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="cosmo-gris.png" id="K5S-Qc-zbr"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="nIR-KJ-fW6"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="5zL-dE-tih">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="coupe-champagne-gris.png" id="Lgn-2a-430"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="hVh-j9-1j2"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="0.40000000000000002" alignment="left" id="dhu-de-ysK">
+                            <items>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="Bw5-rI-lcn">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="jagermeister-gris.png" id="Czk-Ii-GJ7"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="iiu-yb-JUP"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="Mf5-Ge-EYs">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="mojito-gris.png" id="LDW-1m-ytQ"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="hkM-NL-uR8"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="W3b-LX-A7Y">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="pastis-gris.png" id="nCd-gx-qE4"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="A89-Sk-ngu"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="0.40000000000000002" alignment="left" id="mxX-Tx-71c">
+                            <items>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="ih9-PF-JkP">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="pina-colada-gris.png" id="7Db-Zx-Zie"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="ZNy-qP-UOF"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="4Ac-kb-giP">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="rhum-gris.png" id="FtP-CT-xRS"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="hAl-TV-it3"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="TPb-yg-0M5">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="tequila-gris.png" id="3V8-EL-Nrt"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="NpQ-Xy-QHW"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="0.40000000000000002" alignment="left" id="KJS-gj-fAS">
+                            <items>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="cyu-j7-bUL">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="verre-de-vin-gris.png" id="sBG-nD-iWR"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="SfK-2q-gn4"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="LsH-sM-O7b">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="vodka-gris.png" id="MZT-ww-dTD"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="kx5-1z-LId"/>
+                                    </items>
+                                </group>
+                                <group width="0.33000000000000002" height="1" alignment="left" layout="vertical" id="7yl-MR-h4M">
+                                    <items>
+                                        <imageView width="1" height="0.59999999999999998" alignment="left" image="whisky-gris.png" id="Xxa-l6-ZgC"/>
+                                        <label width="1" height="0.40000000000000002" alignment="left" text="Label" textAlignment="center" id="6zG-h1-EqI"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="imgBiere" destination="iQr-AF-fWw" id="WGp-BO-uZr"/>
+                        <outlet property="imgChampagne" destination="Lgn-2a-430" id="UNl-bp-Wzo"/>
+                        <outlet property="imgCosmo" destination="K5S-Qc-zbr" id="kGF-TM-5wi"/>
+                        <outlet property="imgJager" destination="Czk-Ii-GJ7" id="3Gx-e7-C1Q"/>
+                        <outlet property="imgMojito" destination="LDW-1m-ytQ" id="oqQ-oI-GIK"/>
+                        <outlet property="imgPastis" destination="nCd-gx-qE4" id="rzI-Ns-Zdu"/>
+                        <outlet property="imgPina" destination="7Db-Zx-Zie" id="l1w-VP-OdT"/>
+                        <outlet property="imgRhum" destination="FtP-CT-xRS" id="IvK-Vw-aFN"/>
+                        <outlet property="imgTequila" destination="3V8-EL-Nrt" id="GtO-kl-6Iz"/>
+                        <outlet property="imgVin" destination="sBG-nD-iWR" id="tIJ-Sl-0Qd"/>
+                        <outlet property="imgVodka" destination="MZT-ww-dTD" id="cQN-9G-R7B"/>
+                        <outlet property="imgWhisky" destination="Xxa-l6-ZgC" id="c1w-dp-xJ9"/>
+                        <outlet property="lblBiere" destination="ae0-3C-5BF" id="Qbw-WS-6dX"/>
+                        <outlet property="lblChampagne" destination="hVh-j9-1j2" id="Syn-he-PWH"/>
+                        <outlet property="lblCosmo" destination="nIR-KJ-fW6" id="c3n-2n-BgN"/>
+                        <outlet property="lblJager" destination="iiu-yb-JUP" id="LLt-ih-3Zl"/>
+                        <outlet property="lblMojito" destination="hkM-NL-uR8" id="qcb-DT-XuN"/>
+                        <outlet property="lblPastis" destination="A89-Sk-ngu" id="l74-zN-mkp"/>
+                        <outlet property="lblPina" destination="ZNy-qP-UOF" id="wmC-JN-GZr"/>
+                        <outlet property="lblRhum" destination="hAl-TV-it3" id="ms8-Jg-M4P"/>
+                        <outlet property="lblTequila" destination="NpQ-Xy-QHW" id="DLL-MM-7iw"/>
+                        <outlet property="lblVin" destination="SfK-2q-gn4" id="SJT-gG-prh"/>
+                        <outlet property="lblVodka" destination="kx5-1z-LId" id="t6b-Ta-UdX"/>
+                        <outlet property="lblWhisky" destination="6zG-h1-EqI" id="Fyo-9y-AAX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="412" y="359.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
