@@ -17,5 +17,4 @@
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *poidLbl;
 
 
-
 @end

@@ -11,6 +11,7 @@
 @interface ViewController (){
     @private
     NSString* segmentValue;
+    __weak IBOutlet UISegmentedControl *scSexe;
 }
 
 @end
@@ -28,7 +29,8 @@
     self.tbPoids.delegate = self;
     [self.swCondition setOn:FALSE];
     [self.swtNewsletter setOn:FALSE];
-    
+    self.scSexe.selectedSegmentIndex = 0;
+    segmentValue = @"Homme";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,7 +45,8 @@
 - (IBAction)touchValider:(UIButton *)sender {
     
     if([WCSession defaultSession].paired && [WCSession defaultSession].watchAppInstalled){
-        [[WCSession defaultSession] transferUserInfo:@{@"masse":self.tbPoids.text,@"sexe":segmentValue}];
+       
+        [[WCSession defaultSession] transferUserInfo:@{@"masse": self.tbPoids.text,@"sexe": segmentValue}];
         
     }
 }

@@ -22,6 +22,10 @@
     NSString* poids;
     NSTimeInterval secondsBetween;
     NSString* sexe;
+    float alcoolSupporte;
+    long numberOfSecond;
+    NSInteger poidsInt;
+
 }
 
 @end
@@ -62,6 +66,8 @@
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex{
     NSNumber* counter = [counter_ objectAtIndex:rowIndex];
     NSUInteger count = [counter integerValue];
+    float limitAlcoolDrive = 0.2;
+    float limitAlcool = 0.5 ;
     count++;
     currentDate = [NSDate date];
     NSTimeInterval secondsBetween;
@@ -74,7 +80,14 @@
        
     }
     gramme += 10;
+    long numberOfSecond = secondsBetween ;
+    poidsInt = [poids integerValue];
+    alcoolSupporte =  [CalculSobriete calculAlcoolemie:gramme withPoids:poidsInt WithSexe:sexe];
+    gramme =[CalculSobriete calculAlcoolemieEnCours:gramme withTemps:numberOfSecond];
+    taux= [CalculSobriete calculTauxAlcoolemie:alcoolSupporte withAlcoolConsomme:gramme];
 
+
+    
     [counter_ replaceObjectAtIndex:rowIndex withObject:@(count)];
     NSString* countFormatString =[NSString  stringWithFormat:@"%d", count];
     NSString* alcool = [values_ objectAtIndex:rowIndex];
@@ -82,19 +95,28 @@
     alcool = [alcool stringByAppendingString: @"("];
     alcool = [alcool stringByAppendingString: countFormatString];
     alcool = [alcool stringByAppendingString: @")"];
+    NSLog(@"%f", alcoolSupporte);
        AlcoolRowController* rowController = [self.interfaceTable rowControllerAtIndex:rowIndex];
     [rowController setLetter:alcool mode:[images_ objectAtIndex:rowIndex]];
-   
+    
+    //AlertView
+    
+  
+    if(alcoolSupporte >= limitAlcoolDrive ){
+    WKAlertAction *act = [WKAlertAction actionWithTitle:@"ATTENTION" style:WKAlertActionStyleCancel handler:^(void){
+        
+    }];
+    
+    NSArray *testing = @[act];
+    
+    [self presentAlertControllerWithTitle:@"ATTENTION" message:@"Vous ne pouvez plus prendre la voiture" preferredStyle:WKAlertControllerStyleAlert actions:testing];
+    }
+    
 }
 - (IBAction)onTouchConsommation {
     [self presentControllerWithName:@"Consomation" context:counter_];
 }
 - (IBAction)onTouchStep {
-    long numberOfSecond = secondsBetween ;
-    NSInteger poidsInt = [poids integerValue];
-    float alcoolSupporte =  [CalculSobriete calculAlcoolemie:gramme withPoids:poidsInt WithSexe:sexe];
-    gramme =[CalculSobriete calculAlcoolemieEnCours:gramme withTemps:numberOfSecond];
-    taux= [CalculSobriete calculTauxAlcoolemie:alcoolSupporte withAlcoolConsomme:gramme];
     [self presentControllerWithName:@"Step" context:@[@(taux),@(alcoolSupporte)]];
 }
 @end
